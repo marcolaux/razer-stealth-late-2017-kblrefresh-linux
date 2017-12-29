@@ -29,6 +29,6 @@ in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the fli
 ## install porpably Kaby Lake firmware
 https://01.org/linuxgraphics/downloads/firmware
 
-**In combination with kernel 4.15+ and the proper firmware files the flickering on the internal and HDMI is gone.
+**In combination with kernel 4.15+ and the proper firmware files the flickering on the internal and HDMI is gone.**
 
 I tried Ubuntu 17.10 and Fedora 27. All these steps apply to both and I guess to every GNU/Linux distribution.
