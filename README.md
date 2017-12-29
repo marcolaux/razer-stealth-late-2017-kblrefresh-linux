@@ -7,6 +7,10 @@ fixed
 
 not fixed:
 - touchpad jitter / jumpy cursor in the center of the touchpad (newest libinput and kernel haven't resolved this issue)
+- HDMI:
+  - Image over HDMI flickers with i915.edp_vswing=2 (DisplayPort over USB-C works fine)
+  - No 4k@60Hz via HDMI port (DisplayPort over USB-C works fine)
+  Workaround: find an USB-C-adapter with (Mini)Displayport that supports 4k@60Hz and passthrough charging (there are one or two)
 
 *I have not experienced any other issue.*
 
