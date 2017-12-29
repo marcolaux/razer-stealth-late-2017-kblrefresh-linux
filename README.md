@@ -4,8 +4,6 @@ Fix things on the Razer Stealth (late 2017) with an Intel i7-8550U CPU on GNU/Li
 fixed
 - heavy flicker and screen distortion
 - closing the lid causes the system to infinitely resume and suspend (suspend loop)
-- Image over HDMI flickers with i915.edp_vswing=2 (DisplayPort over USB-C works fine) and kernel-4.15-rc5
-  - for Ubuntu drm-intel-next fixed it (http://kernel.ubuntu.com/~kernel-ppa/mainline/drm-intel-next/current/)
 
 not fixed:
 - touchpad jitter / jumpy cursor in the center of the touchpad (newest libinput and kernel haven't resolved this issue)
@@ -26,9 +24,11 @@ button.lid_init_state=open "fixes" the suspend-resume-loop when closing the lid.
 When AC is connected and you close the lid the very first time you have to do it twice -once-. After that it suspends and resumes flawelessly. I tested nearly every use cases, plugged cables, AC, unplugged them, closed and re-opened the lid - it works fine.
 
 ## install Kernel 4.15+
-in combination with the boot parameter i915.edp_vswing and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after 2-3 normal work days and after that).
+in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after 2-3 normal work days and after that).
 
-For Ubuntu I recommend drm-intel-next (fixes the flicker for internal display and HDMI):
-http://kernel.ubuntu.com/~kernel-ppa/mainline/drm-intel-next/current/
+## install porpably Kaby Lake firmware
+https://01.org/linuxgraphics/downloads/firmware
+
+**In combination with kernel 4.15+ and the proper firmware files the flickering on the internal and HDMI is gone.
 
 I tried Ubuntu 17.10 and Fedora 27. All these steps apply to both and I guess to every GNU/Linux distribution.
