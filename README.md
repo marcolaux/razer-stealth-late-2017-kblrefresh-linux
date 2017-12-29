@@ -4,6 +4,7 @@ Fix things on the Razer Stealth (late 2017) with an Intel i7-8550U CPU on GNU/Li
 fixed
 - heavy flicker and screen distortion
 - closing the lid causes the system to infinitely resume and suspend (suspend loop)
+  - suspend to ram and disk (hibernation) is reliable
 
 not fixed:
 - touchpad jitter / jumpy cursor in the center of the touchpad (newest libinput and kernel haven't resolved this issue)
@@ -11,8 +12,8 @@ not fixed:
   - Image over HDMI flickers with i915.edp_vswing=2 (DisplayPort over USB-C works fine)
   - No 4k@60Hz via HDMI port (DisplayPort over USB-C works fine)
   Workaround: find an USB-C-adapter with (Mini)Displayport that supports 4k@60Hz and passthrough charging (there are one or two)
-
-*I have not experienced any other issue.*
+  
+When I find more issues I'll document them here.
 
 ## Kernel Boot Parameters
 **i915.edp_vswing=2 i915.enable_rc6=1 button.lid_init_state=open**
