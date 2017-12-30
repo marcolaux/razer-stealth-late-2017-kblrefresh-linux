@@ -26,7 +26,7 @@ When AC is connected and you close the lid the very first time you have to do it
 ## install Kernel 4.15+
 in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after 2-3 normal work days and after that).
 
-## install porpably Kaby Lake firmware
+## install Kaby Lake firmware
 https://01.org/linuxgraphics/downloads/firmware
 
 **In combination with kernel 4.15+ and the proper firmware files the flickering on the internal and HDMI is gone.**
