@@ -4,6 +4,7 @@ Fix things on the Razer Stealth (late 2017) with an Intel i7-8550U CPU on GNU/Li
 fixed
 - heavy flicker and screen distortion
 - closing the lid causes the system to infinitely resume and suspend (suspend loop)
+- PCIe Bus Error
 
 not fixed:
 - touchpad jitter / jumpy cursor in the center of the touchpad (newest libinput and kernel haven't resolved this issue)
@@ -14,14 +15,21 @@ not fixed:
 When I find more issues I'll document them here.
 
 ## Kernel Boot Parameters
-**i915.edp_vswing=2 i915.enable_rc6=1 button.lid_init_state=open**
+**pci=nomsi i915.edp_vswing=2 i915.enable_rc6=1 button.lid_init_state=open**
 
-i915.edp_vswing=2 in combination with Linux 4.15 fixes the flickering for the internal display. The mainline Ubuntu Kernel drm-intel-next also fixes the flicker on HDMI.
+**pci=nomsi** fixes the following error I got all the time:
+```
+computername kernel: pcieport 0000:00:1c.0: PCIe Bus Error: severity=Corrected, type=Data Link Layer, id=00e0(Transmitter ID)
+computername kernel: pcieport 0000:00:1c.0:   device [8086:9d12] error status/mask=00001000/00002000
+computername kernel: pcieport 0000:00:1c.0:    [12] Replay Timer Timeout
+```
 
-i915.enable_rc6=1 works fine and I didn't experience any issue with it (additional power saving states for the iGPU)
+**i915.edp_vswing=2** in combination with Linux 4.15 fixes the flickering for the internal display. The mainline Ubuntu Kernel drm-intel-next also fixes the flicker on HDMI.
 
-button.lid_init_state=open "fixes" the suspend-resume-loop when closing the lid. Essentially it tells the kernel the initial lid-state like it says. The lid state otherwise is unknown to the kernel. Theoretically it could be a problem if the computer is woken up while the lid is closed (wake on lan or a timed suspension) - I haven't tested this cases.
-When AC is connected and you close the lid the very first time you have to do it twice -once-. After that it suspends and resumes flawelessly. I tested nearly every use cases, plugged cables, AC, unplugged them, closed and re-opened the lid - it works fine.
+**i915.enable_rc6=1** works fine and I didn't experience any issue with it (additional power saving states for the iGPU)
+
+**button.lid_init_state=open** "fixes" the suspend-resume-loop when closing the lid. Essentially it tells the kernel the initial lid-state like it says. The lid state otherwise is unknown to the kernel. Theoretically it could be a problem if the computer is woken up while the lid is closed (wake on lan or a timed suspension).
+When I have the computer connected to a "noname" USB-C to Displayport (incl. reverse charging capabilities) it wasn't able to suspend longer than 20 to 30 minutes or so. I couldn't see any entries in the journal. Perhaps it has something to do with the the PCIe error message. I will try with the **pci=nomsi** parameter in the next few days and lets see if the error is corrected.
 
 ## install Kernel 4.15+
 in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after 2-3 normal work days and after that).
