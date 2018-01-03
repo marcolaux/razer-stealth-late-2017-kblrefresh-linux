@@ -24,7 +24,7 @@ computername kernel: pcieport 0000:00:1c.0:   device [8086:9d12] error status/ma
 computername kernel: pcieport 0000:00:1c.0:    [12] Replay Timer Timeout
 ```
 
-**i915.edp_vswing=2** in combination with Linux 4.15 fixes the flickering for the internal display. The mainline Ubuntu Kernel drm-intel-next also fixes the flicker on HDMI.
+**i915.edp_vswing=2** in combination with Linux 4.15 fixes the flickering for the internal display.
 
 **i915.enable_rc6=1** works fine and I didn't experience any issue with it (additional power saving states for the iGPU)
 
@@ -32,7 +32,7 @@ computername kernel: pcieport 0000:00:1c.0:    [12] Replay Timer Timeout
 When I have the computer connected to a "noname" USB-C to Displayport (incl. reverse charging capabilities) it wasn't able to suspend longer than 20 to 30 minutes or so. I couldn't see any entries in the journal. Perhaps it has something to do with the the PCIe error message. I will try with the **pci=nomsi** parameter in the next few days and lets see if the error is corrected.
 
 ## install Kernel 4.15+
-in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after 2-3 normal work days and after that).
+in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after a week of work and after that).
 
 ## install Kaby Lake firmware
 https://01.org/linuxgraphics/downloads/firmware
