@@ -31,11 +31,19 @@ computername kernel: pcieport 0000:00:1c.0:    [12] Replay Timer Timeout
 **button.lid_init_state=open** "fixes" the suspend-resume-loop when closing the lid. Essentially it tells the kernel the initial lid-state like it says. The lid state otherwise is unknown to the kernel. Theoretically it could be a problem if the computer is woken up while the lid is closed (wake on lan or a timed suspension).
 When I have the computer connected to a "chenyang usb-c USB 3.1 Typ C to Mini DisplayPort DP & USB 2.0 OTG" (incl. charging capabilities) it wasn't able to suspend longer than 20 to 30 minutes or so. I couldn't see any entries in the journal. ~~Perhaps it has something to do with the the PCIe error message. I will try with the **pci=nomsi** parameter in the next few days and lets see if the error is corrected.~~
 
-## install Kernel 4.15+ (RC6 at least)
+## install Kernel 4.15+
 in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after a week of work and after that).
 
-## install Kaby Lake firmware
+Ubuntu users should use the latest mainline Kernel:
+https://wiki.ubuntu.com/Kernel/MainlineBuilds
+
+Fedora users should use the Rawhide Kernel:
+https://fedoraproject.org/wiki/RawhideKernelNodebug
+
+## install Kaby Lake firmware if needed (Ubuntu for example)
 https://01.org/linuxgraphics/downloads/firmware
+
+Download the newwest versions, extract them and copy the .bin files to /lib/firmware or run each install.sh script.
 
 **In combination with kernel 4.15+ and the proper firmware files the flickering on the internal and HDMI is gone.**
 
