@@ -5,7 +5,9 @@ fixed
 - heavy flicker and screen distortion
 - closing the lid causes the system to infinitely resume and suspend (suspend loop)
 - PCIe Bus Error
-- touchpad jitter / jumpy cursor in the center of the touchpad
+
+partially fixed
+- touchpad jitter / jumpy cursor in the center of the touchpad (with Linux 4.15 RC6 it's reduced)
 
 not fixed:
 - HDMI:
@@ -34,7 +36,7 @@ When I have the computer connected to a "chenyang usb-c USB 3.1 Typ C to Mini Di
 ## install Kernel 4.15+ (RC6 at least)
 in combination with the boot parameter i915.edp_vswing=2 and kernel 4.15 the flicker is gone and I haven't seen one flicker since (after a week of work and after that).
 
-4.15 RC6 fixes the touchpad jittering
+4.15 RC6 reduces the touchpad jittering (in Xorg it's practicable but not on Wayland because of the higher sensivity with HiDPI displays)
 
 ## install Kaby Lake firmware
 https://01.org/linuxgraphics/downloads/firmware
