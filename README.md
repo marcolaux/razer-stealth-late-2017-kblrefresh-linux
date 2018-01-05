@@ -56,6 +56,6 @@ Download the newwest versions, extract them and copy the .bin files to /lib/firm
 
 I tried Ubuntu 17.10 and Fedora 27. All these steps apply to both and I guess to every GNU/Linux distribution.
 
-For a company that once said it wants to fully support GNU/Linux an all it's devices the result is kind of disappointing. Especially because the mentioned problems also exist in previous Stealth and Blade machines (lid close, flickering screen and the jumpy touchpad). So I cannot count on Razer that this machine will eventually run fine on GNU/Linux in the next years.
+For a company that once said it wants to fully support GNU/Linux on all of it's devices the result is kind of disappointing. Especially because the mentioned problems also exist in previous Stealth and Blade machines (lid close, flickering screen and the jumpy touchpad). So I cannot count on Razer that this machine will eventually run fine on GNU/Linux in the next years.
 
 I won't investigate this case any further.
