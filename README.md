@@ -4,7 +4,6 @@ Fix things on the Razer Stealth (late 2017) with an Intel i7-8550U CPU on GNU/Li
 fixed
 - heavy flicker and screen distortion
 - PCIe Bus Error (no problems experienced however)
-- touchpad jitter / jumpy cursor in the center of the touchpad (with Linux 4.15 RC6 it's a little reduced)
 
 partially fixed:
 - closing the lid causes the system to infinitely resume and suspend (suspend loop)
@@ -13,9 +12,9 @@ partially fixed:
 
 not fixed:
 - lid closed, machine wakes up for some reason (like wake on lan or a problematic USB-C to Displayport adapter) and won't go to sleep again
-- HDMI:
-  - flickering and outages for a few seconds here and there
-  - No 4k@60Hz via HDMI port (DisplayPort over USB-C works fine)
+- touchpad jitter / jumpy cursor in the center of the touchpad (with Linux 4.15 RC6 it's a little reduced)
+- HDMI flickering and outages for a few seconds here and there
+- HDMI no 4k@60Hz via HDMI port (specs tell us HDMI2 is supported, DisplayPort over USB-C works fine)
   Workaround: find an USB-C-adapter with (Mini)Displayport that supports 4k@60Hz and passthrough charging (there are one or two)
   
 When I find more issues I'll document them here.
@@ -57,6 +56,6 @@ Download the newwest versions, extract them and copy the .bin files to /lib/firm
 
 I tried Ubuntu 17.10 and Fedora 27. All these steps apply to both and I guess to every GNU/Linux distribution.
 
-For a company that once said it wants to fully support GNU/Linux an all it's devices the result is kind of disappointing. Especially because the mentioned problems also exist in previous Stealth and Blade machines (lid close, flickering screen and the jumpy touchpad).
+For a company that once said it wants to fully support GNU/Linux an all it's devices the result is kind of disappointing. Especially because the mentioned problems also exist in previous Stealth and Blade machines (lid close, flickering screen and the jumpy touchpad). So I cannot count on Razer that this machine will eventually run fine on GNU/Linux in the next years.
 
 I won't investigate this case any further.
