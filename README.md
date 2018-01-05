@@ -17,7 +17,7 @@ not fixed:
 - HDMI no 4k@60Hz via HDMI port (specs tell us HDMI2 is supported, DisplayPort over USB-C works fine)
   Workaround: find an USB-C-adapter with (Mini)Displayport that supports 4k@60Hz and passthrough charging (there are one or two)
   
-When I find more issues I'll document them here.
+~~When I find more issues I'll document them here.~~
 
 ## Kernel Boot Parameters
 **pci=nomsi i915.edp_vswing=2 i915.enable_rc6=1 button.lid_init_state=open**
